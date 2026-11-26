@@ -1,0 +1,168 @@
+/* Nippon Numbers — Japan national statistics atlas.
+   One stylesheet for the whole site. System font stack only: no font
+   is fetched from anywhere, so the page works with no network. */
+
+:root {
+  --ink: #1c2433;
+  --muted: #5b6577;
+  --paper: #f7f5f0;
+  --card: #ffffff;
+  --line: #d9d4c8;
+  --navy: #1e3a5f;
+  --navy-deep: #142a47;
+  --red: #b91c1c;
+  --red-soft: #fdeceb;
+  --blue-soft: #e8eef5;
+  --good: #166534;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+a { color: var(--navy); }
+
+header.site {
+  background: var(--navy);
+  color: #fff;
+  padding: 18px 0 0;
+}
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 18px; }
+
+.brand { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.brand .disc {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--red); display: inline-block;
+  align-self: center; flex: 0 0 auto;
+}
+.brand h1 { font-size: 26px; margin: 0; letter-spacing: 0.2px; }
+.brand h1 span { font-weight: 400; color: #c9d6e6; }
+.brand .jp { color: #f3b7b7; font-size: 15px; }
+.tagline { margin: 4px 0 0 42px; color: #c9d6e6; font-size: 14px; }
+
+nav.tabs {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  margin-top: 16px; padding-bottom: 0;
+}
+nav.tabs a {
+  color: #dbe4ef; text-decoration: none;
+  padding: 9px 14px; border-radius: 8px 8px 0 0;
+  font-size: 15px; border: 1px solid transparent; border-bottom: 0;
+}
+nav.tabs a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+nav.tabs a.active { background: var(--paper); color: var(--navy); font-weight: 700; }
+
+main.wrap { padding-top: 22px; padding-bottom: 40px; }
+
+h2 { font-size: 24px; margin: 4px 0 6px; color: var(--navy-deep); }
+h3 { font-size: 18px; margin: 22px 0 8px; color: var(--navy-deep); }
+.lede { color: var(--muted); margin: 0 0 18px; max-width: 72ch; }
+.src { font-size: 13px; color: var(--muted); margin-top: 8px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+.card h3 { margin-top: 0; }
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin-bottom: 18px;
+}
+.kpi {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 14px 16px;
+}
+.kpi .label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+.kpi .value { font-size: 30px; font-weight: 800; color: var(--navy-deep); margin: 2px 0; }
+.kpi .value small { font-size: 15px; font-weight: 600; color: var(--muted); }
+.kpi .delta { font-size: 13px; color: var(--muted); }
+.kpi .delta .up { color: var(--good); }
+.kpi .delta .down { color: var(--red); }
+.kpi .src { margin-top: 4px; }
+
+.controls {
+  display: flex; gap: 16px; flex-wrap: wrap; align-items: end;
+  background: var(--blue-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 16px; margin-bottom: 18px;
+}
+.controls label { font-size: 13px; color: var(--muted); display: block; margin-bottom: 3px; }
+.controls select, .controls button {
+  font: inherit; font-size: 15px; padding: 7px 10px;
+  border: 1px solid #aab4c4; border-radius: 7px; background: #fff; color: var(--ink);
+}
+.controls button { cursor: pointer; }
+.controls button:hover { border-color: var(--navy); }
+.controls button.on {
+  background: var(--navy); color: #fff; border-color: var(--navy); font-weight: 700;
+}
+.controls .seg { display: flex; gap: 6px; }
+.controls .seg button { padding: 7px 12px; }
+
+table.data { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.data th, table.data td { padding: 8px 10px; text-align: right; border-bottom: 1px solid #e5e1d6; }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+table.data th { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; }
+table.data tr:hover td { background: #faf8f3; }
+table.data td.num { font-variant-numeric: tabular-nums; }
+table.data th.sortable { cursor: pointer; }
+table.data th.sortable:hover { color: var(--navy); }
+
+svg { width: 100%; height: auto; display: block; }
+svg .grid { stroke: #e5e1d6; stroke-width: 1; }
+svg .zero { stroke: #9aa3b2; stroke-width: 1.2; }
+svg .axis { font-size: 12px; fill: var(--muted); font-family: inherit; }
+svg .vlabel { font-size: 13px; font-weight: 700; fill: var(--navy-deep); font-family: inherit; }
+svg .vlabel-sm { font-size: 11px; fill: var(--muted); font-family: inherit; }
+
+.findings { margin: 0; padding-left: 20px; }
+.findings li { margin-bottom: 8px; }
+.findings li strong { color: var(--navy-deep); }
+
+.note {
+  background: #fff8e6; border: 1px solid #e8d9a8; border-radius: var(--radius);
+  padding: 12px 16px; font-size: 14px; margin-bottom: 18px;
+}
+.note strong { color: var(--navy-deep); }
+
+.detail {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+.detail .box { background: var(--blue-soft); border-radius: 8px; padding: 10px 12px; }
+.detail .box .k { font-size: 12px; color: var(--muted); text-transform: uppercase; }
+.detail .box .v { font-size: 19px; font-weight: 700; color: var(--navy-deep); }
+
+footer.site {
+  border-top: 1px solid var(--line);
+  padding: 18px 0 30px; color: var(--muted); font-size: 13px;
+}
+footer.site .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .detail { grid-template-columns: repeat(2, 1fr); }
+  .brand h1 { font-size: 22px; }
+  .tagline { margin-left: 0; }
+  nav.tabs a { padding: 8px 10px; font-size: 14px; }
+  .card { padding: 14px; }
+  table.data { font-size: 14px; }
+  .table-scroll { overflow-x: auto; }
+}
+@media (max-width: 480px) {
+  .kpis { grid-template-columns: 1fr; }
+}

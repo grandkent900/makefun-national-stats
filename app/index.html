@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nippon Numbers — Japan National Statistics</title>
+<meta name="description" content="Japan's headline statistics — population, economy, labour, prices and regions — each figure with its source and year. Works offline.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <span class="disc" aria-hidden="true"></span>
+      <h1>Nippon Numbers <span>— Japan in figures</span></h1>
+      <span class="jp">日本の数字</span>
+    </div>
+    <p class="tagline">Population, economy, jobs, prices and regions — every figure with its source and year.</p>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#/overview" class="active">Overview</a>
+      <a href="#/population">Population</a>
+      <a href="#/economy">Economy</a>
+      <a href="#/labour">Labour &amp; prices</a>
+      <a href="#/regions">Regions</a>
+      <a href="#/sources">Sources &amp; methods</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="page"></main>
+<footer class="site">
+  <div class="wrap">
+    <span>Nippon Numbers — an independent reference site, not affiliated with any government or the World Bank.</span>
+    <span>Figures: World Bank WDI · Statistics Bureau of Japan · Ministry of Health, Labour and Welfare</span>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script src="format.js"></script>
+<script src="charts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
